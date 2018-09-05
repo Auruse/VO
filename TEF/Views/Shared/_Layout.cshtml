@@ -1,5 +1,5 @@
 ﻿@using TEF.Models
-
+@using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,29 +10,81 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top">             
-                <a class="navbar-brand" href="/home/index">
-                    <img src="~/Content/Imgs/LogoNav3.png" width="98" height="28" class="d-inline-block align-top" alt="">
-                </a>            
+        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+            <a class="navbar-brand" href="/home/index">
+                @*<img src="~/Content/Imgs/LogoNav3.png" width="98" height="28" class="d-inline-block align-top" alt="">*@
+                <span style="font-size: 1.1em; text-decoration:none; color:rgb(0, 148, 255);">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </span>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Learning Paths<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>                 
-                    @Html.Partial("_LoginPartial")                                  
+                @if (Request.IsAuthenticated)
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                <span style="font-size: 1.1em; text-decoration:none; color:grey;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </span>
+                                Курсы
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                <span style="font-size: 1.1em; text-decoration:none; color:grey;">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </span>
+                                Тесты
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                <span style="font-size: 1.1em; text-decoration:none; color:grey;">
+                                    <i class="fas fa-chart-line"></i>
+                                </span>
+                                Статистика
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                    @*<button type="button" class="btn btn-link">
+                <span style="font-size: 1.5em;">
+                    <i class="fas fa-user-circle"></i>
+                </span>
+                <span class="badge badge-light">9</span>
+                <span class="sr-only">unread messages</span>
+            </button>
+            <span style="font-size: 1.5em; color: grey;">
+                <i class="fas fa-cogs"></i>
+            </span>*@
+                    @Html.Partial("_LoginPartial")
+                }
+                else
+                {
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Learning Paths<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+
+                }
             </div>
         </nav>
     </header>

@@ -6,11 +6,19 @@
     @Html.AntiForgeryToken()
 
     <div class="nav navbar-nav navbar-right">
-         <div class="nav navbar-text">
-        @Html.ActionLink("Здравствуйте, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { style = "text-decoration:none;" , title = "Manage" })
+        <div class="nav navbar-text">
+            <span style="font-size: 1.3em; text-decoration:none; color:dodgerblue;">
+                <i class="fas fa-user-alt">
+                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { style = "text-decoration:none;", title = "Manage" })
+                </i>
+            </span>
         </div>
         <div class="btn btn-outline-light">
-            <a href="javascript:document.getElementById('logoutForm').submit()" style = "text-decoration:none;">Выйти</a>
+            <a href="javascript:document.getElementById('logoutForm').submit()" style="text-decoration:none;">
+                <span style="font-size: 1.5em; text-decoration:none; color:grey;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </span>
+            </a>
         </div>
     </div>
 }
