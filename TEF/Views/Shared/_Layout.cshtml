@@ -15,13 +15,13 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
             <a class="navbar-brand" href="/home/index">
                 @*<img src="~/Content/Imgs/LogoNav3.png" width="98" height="28" class="d-inline-block align-top" alt="">*@
                 <span style="font-size: 1.1em; text-decoration:none; color:rgb(50, 68, 114);">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span style="color:rgb(153,0,0);">Campus</span>
-                    </span>
+                </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,6 @@
                                     <i class="fas fa-graduation-cap"></i>
                                 </span>
                                 Курсы
-                               
                             </a>
                         </li>
                         <li class="nav-item">
@@ -45,7 +44,6 @@
                                     <i class="fas fa-pencil-ruler"></i>
                                 </span>
                                 Тесты
-                                 
                             </a>
                         </li>
                         <li class="nav-item">
@@ -54,27 +52,26 @@
                                     <i class="fas fa-chart-line"></i>
                                 </span>
                                 Статистика
-                                
                             </a>
                         </li>
                     </ul>
                     @*<button type="button" class="btn btn-link">
-                <span style="font-size: 1.5em;">
-                    <i class="fas fa-user-circle"></i>
-                </span>
-                <span class="badge badge-light">9</span>
-                <span class="sr-only">unread messages</span>
-            </button>
-            <span style="font-size: 1.5em; color: grey;">
-                <i class="fas fa-cogs"></i>
-            </span>*@
+                    <span style="font-size: 1.5em;">
+                        <i class="fas fa-user-circle"></i>
+                    </span>
+                    <span class="badge badge-light">9</span>
+                    <span class="sr-only">unread messages</span>
+                </button>
+                <span style="font-size: 1.5em; color: grey;">
+                    <i class="fas fa-cogs"></i>
+                </span>*@
                     @Html.Partial("_LoginPartial")
                 }
                 else
                 {
 
                     <ul class="navbar-nav mr-auto" style="font-family:Lobster;">
-                        <li class="nav-item" >
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Учебные траектории</a>
                         </li>
                         <li class="nav-item">
@@ -90,6 +87,7 @@
             </div>
         </nav>
     </header>
+    <div class="row" style="margin-top:1.4rem;"></div>
     @RenderBody()
     <hr />
 

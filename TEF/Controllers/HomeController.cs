@@ -26,5 +26,9 @@ namespace TEF.Controllers
 
             return View();
         }
+        public ActionResult AccountingTest()
+        {
+            return View();
+        }
     }
 }

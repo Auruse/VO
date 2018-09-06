@@ -6,11 +6,11 @@
 <div class="container">
   
 </div>
-<div class="container">
+<div class="container text-center">
     <div class="alert alert-info" role="alert">
-        Выберите направление, пройдите тест и получите траекторию обучения!
+        Доступные траектории обучения и курсы
     </div>
-    <div class="panel panel-default">
+    @*<div class="panel panel-default">
                <table class="table">
             <thead>
                 <tr>
@@ -37,40 +37,56 @@
             </tbody>
         </table>
 
-    </div>
-    <div class="card-deck" style="max-width: 80rem;">
-        <div class="card">
-            <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap" >
-            <div class="card-body">
-                <h5 class="card-title">Бухгалтерский учет</h5>                 
-                <p class="card-text">Траектория обучения включает изучение основ РСБУ, Excel 2016, 1С Бухгалтерия 3.0. Предусмотрена возможность выбора комлектации курсов: сокращение тематики программ.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Стажер > Бухгалтер > Старший Бухгалтер</small>
-            </div>
+    </div>*@
+    <div class="card text-center">
+        <div class="card-header">
+            Новинка!
         </div>
-        <div class="card">
-            <img class="card-img-top" src="~/Content/Imgs/funghi_strani.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Excel 2016 для бухгалтера</h5>                 
-                <p class="card-text">Программа включает приемы и методы обработки и анализа для бухгалтеров. Рассматриваются методы обработки данных из 1С Бухгалтерия 3.0</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Базовый > Средний > Профессиональный </small>
-            </div>
+        <div class="card-body">
+            <h5 class="card-title">Тренажер по РСБУ</h5>
+            <p class="card-text">Тестовые вопросы по бухгалтерскому учету в РФ для проверки уровня знаний</p>
+            @Html.ActionLink("Начать", "AccountingTest", "Home", routeValues: null, htmlAttributes: new { id = "start", @style = "text-decoration:none;" })
+
         </div>
-        <div class="card">
-            <img class="card-img-top" src="~/Content/Imgs/b_mashroom.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Excel 2016 для юриста</h5>
-                <p class="card-text">Расчет пени, штрафов и неустоек по договорам. Подготовка и печать документов для судов. Шаблоны и макеты готовых решений.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Базовый</small>
-            </div>
+        <div class="card-footer text-muted">
+           Бесплатно
         </div>
     </div>
-</div>
+     
+        <div class="card-deck" style="max-width: 80rem;">
+
+            <div class="card">
+                <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Бухгалтерский учет</h5>
+                    <p class="card-text">Основы РСБУ, Excel 2016, 1С Бухгалтерия 3.0. Предусмотрена возможность выбора комлектации курсов: сокращение тематики программ.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Стажер > Бухгалтер > Старший Бухгалтер</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="~/Content/Imgs/funghi_strani.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Excel 2016 для бухгалтера</h5>
+                    <p class="card-text">Приемы и методы анализа данных для бухгалтеров. Быстрые расчеты без формул. Сводные таблицы. Функции ВПР, ПОИСКПОЗ, ИНДЕКС и др. Обработка и анализ данных из 1С Бухгалтерия 3.0</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Базовый > Средний > Профессиональный </small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="~/Content/Imgs/b_mashroom.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Excel 2016 для юриста</h5>
+                    <p class="card-text">Расчет пени, штрафов и неустоек по договорам. Подготовка и печать документов для судов. Шаблоны и макеты готовых решений.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Базовый</small>
+                </div>
+            </div>
+        </div>
+    </div>
         }
         else
         {
