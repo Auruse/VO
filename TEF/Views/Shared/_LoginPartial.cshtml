@@ -8,9 +8,9 @@
     <div class="nav navbar-nav navbar-right">
         <div class="nav navbar-text">
             <span style="font-size: 1.3em; text-decoration:none; color:dodgerblue;">
-                <i class="fas fa-user-alt">
-                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { style = "text-decoration:none;", title = "Manage" })
-                </i>
+                <i class="fas fa-user-alt"></i>
+                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { style = "font-size: 0.8em; text-decoration:none; font-family:Lobster;", title = "Manage" })
+                
             </span>
         </div>
         <div class="btn btn-outline-light">
@@ -25,13 +25,13 @@
 }
 else
 {
-<div class="nav navbar-nav navbar-right">
-    <div class="btn btn-outline-primary my-2 my-sm-0">
-        @Html.ActionLink("Войти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+<div class="nav navbar-nav navbar-right"  style="font-family:Lobster;">
+    <div class="btn btn-outline">
+        @Html.ActionLink("Войти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style= "color:rgb(153,0,0); text-decoration:none;" })
     </div>
 
-    <div class="btn btn-outline-light">
-        @Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    <div class="btn btn-outline">
+        @Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:grey; text-decoration:none;" })
     </div>
     @*<li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@

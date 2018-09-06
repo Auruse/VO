@@ -11,6 +11,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pattaya" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,6 +20,7 @@
                 @*<img src="~/Content/Imgs/LogoNav3.png" width="98" height="28" class="d-inline-block align-top" alt="">*@
                 <span style="font-size: 1.1em; text-decoration:none; color:rgb(0, 148, 255);">
                     <i class="fas fa-chalkboard-teacher"></i>
+                    Campus
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,32 +29,32 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 @if (Request.IsAuthenticated)
                 {
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                    <ul class="navbar-nav mr-auto" style="font-family:Lobster;">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span style="font-size: 1.1em; text-decoration:none; color:grey;">
                                     <i class="fas fa-graduation-cap"></i>
                                 </span>
                                 Курсы
-                                <span class="sr-only">(current)</span>
+                               
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span style="font-size: 1.1em; text-decoration:none; color:grey;">
                                     <i class="fas fa-pencil-ruler"></i>
                                 </span>
                                 Тесты
-                                <span class="sr-only">(current)</span>
+                                 
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span style="font-size: 1.1em; text-decoration:none; color:grey;">
                                     <i class="fas fa-chart-line"></i>
                                 </span>
                                 Статистика
-                                <span class="sr-only">(current)</span>
+                                
                             </a>
                         </li>
                     </ul>
@@ -71,15 +73,15 @@
                 else
                 {
 
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Learning Paths<span class="sr-only">(current)</span></a>
+                    <ul class="navbar-nav mr-auto" style="font-family:Lobster;">
+                        <li class="nav-item" >
+                            <a class="nav-link" href="#">Учебные траектории</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#">Тренажеры</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#">Контакты</a>
                         </li>
                     </ul>
                     @Html.Partial("_LoginPartial")
