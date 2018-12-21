@@ -26,5 +26,26 @@ namespace TEF.Controllers
 
             return View();
         }
+
+        public ActionResult TrainingsList()
+        {
+            return View();
+        }
+        public ActionResult TestsList()
+        {
+            return View();
+        }
+        public ActionResult StatisticsPage()
+        {
+            return View();
+        }
+        public ActionResult GuessRecordIndex()
+        {
+            return View();
+        }
+        public ActionResult AccountingTrainingIndex()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "GuessRecordIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container text-center">
+    <div class="alert alert-success text-center" role="alert">
+        Вы ответили на Х вопросов из Х
+    </div>
+    <div class="progress mb-3">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    
+    <div class="card border-primary mb-3" style="max-width: 100%;">
+        <div class="card-header">Вопрос №Х</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title">Начислен НДС по приобретенным услугам</h5>
+            @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+            
+            <div class="container text-left">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Дт 19 Кт 62
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Дт 19 Кт 60
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                    <label class="form-check-label" for="exampleRadios3">
+                        Дт 19 Кт 63
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                    <label class="form-check-label" for="exampleRadios4">
+                        Дт 19 Кт 71
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                    <label class="form-check-label" for="exampleRadios5">
+                        нет правильного ответа
+                    </label>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-success">Подтвердить</button>
+            <button type="button" class="btn btn-outline-secondary">Пропустить</button>
+        </div>
+    </div>
+</div>

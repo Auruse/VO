@@ -1,48 +1,56 @@
 ﻿@using Microsoft.AspNet.Identity
-@{ViewBag.Title = "Home Page";}
+@{ViewBag.Title = "Корпоративный Университет";}
 
 @if (Request.IsAuthenticated)
 {
+ 
 <div class="container">
-  
-</div>
-<div class="container">
-    <div class="alert alert-info" role="alert">
-        Выберите направление, пройдите тест и получите траекторию обучения!
-    </div>
+
     <div class="panel panel-default">
-               <table class="table">
+        <table class="table">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>Курс</th>
+                    <th>Результат</th>
+                    <th>Итоговый результат</th>
+                    <th>Примечание</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
+                    <td>Бухгалтерский учет. Уровень 1</td>
+                    <td>75%</td>
+                    <td>Не сдан</td>
+                    <td>Пересдать</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
+                    <td>Excel. Уровень 1</td>
+                    <td>95%</td>
+                    <td>Cдан</td>
+                    <td>Отчет</td>
                 </tr>
-                <tr> <th scope="row">3</th> <td>Larry</td> <td>the Bird</td> <td>twitter</td> </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Excel. Уровень 2</td>
+                    <td>34%</td>
+                    <td>Не сдан</td>
+                    <td>Пересдать</td>
+                </tr>
             </tbody>
         </table>
 
     </div>
+    <div class="alert alert-info text-center" role="alert">
+       Рекомендуемые учебные траектории
+    </div>
     <div class="card-deck" style="max-width: 80rem;">
         <div class="card">
-            <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap" >
+            <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Бухгалтерский учет</h5>                 
+                <h5 class="card-title">Бухгалтерский учет</h5>
                 <p class="card-text">Траектория обучения включает изучение основ РСБУ, Excel 2016, 1С Бухгалтерия 3.0. Предусмотрена возможность выбора комлектации курсов: сокращение тематики программ.</p>
             </div>
             <div class="card-footer">
@@ -52,7 +60,7 @@
         <div class="card">
             <img class="card-img-top" src="~/Content/Imgs/funghi_strani.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Excel 2016 для бухгалтера</h5>                 
+                <h5 class="card-title">Excel 2016 для бухгалтера</h5>
                 <p class="card-text">Программа включает приемы и методы обработки и анализа для бухгалтеров. Рассматриваются методы обработки данных из 1С Бухгалтерия 3.0</p>
             </div>
             <div class="card-footer">
@@ -139,8 +147,10 @@
                     <div class="col-lg-4">
                         <img class="rounded-circle" src="~/Content/Imgs/MacroFags.JPG" alt="Generic placeholder image" width="140" height="140">
                         <h2>Проверь себя</h2>
-                        <p>Онланй тренажеры помогут проверить уровень знаний.</p>
+                        <p>Онлайн тренажеры помогут проверить уровень знаний.</p>
+
                         <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                         
                     </div><!-- /.col-lg-4 -->
                     <div class="col-lg-4">
                         <img class="rounded-circle" src="~/Content/Imgs/funghi_strani.png" alt="Generic placeholder image" width="140" height="140">

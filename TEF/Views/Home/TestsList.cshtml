@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "TestsList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="alert alert-primary text-center" role="alert">
+        Тренажеры
+    </div>
+    <div class="card-deck" style="max-width: 80rem;">
+        <div class="card" >
+           
+                <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap" height="280">
+                <div class="card-body">
+                    <a href="@Url.Action("GuessRecordIndex","Home")" style="text-decoration: none;color:black;">
+                        <h5 class="card-title">Бухгалтерский учет</h5>
+                        <p class="card-text">Угадай проводку</p>
+                    </a>
+                </div>
+             
+                <div class="card-footer">
+                    <small class="text-muted">Базовый > Средний > Профессиональный</small>
+                </div>
+           
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Imgs/funghi_strani.png" alt="Card image cap" height="280">
+            <div class="card-body">
+                <h5 class="card-title">Бухгалтерский учет</h5>
+                <p class="card-text">Тест на знание РСБУ</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Базовый > Средний > Профессиональный </small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Imgs/b_mashroom.png" alt="Card image cap" height="280">
+            <div class="card-body">
+                <h5 class="card-title">Бухгалтерский учет</h5>
+                <p class="card-text">Практикум ПБУ 18/02</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Базовый > Средний > Профессиональный</small>
+            </div>
+        </div>
+    </div>
+</div>
+
