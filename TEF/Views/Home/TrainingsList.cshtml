@@ -4,46 +4,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <div class="alert alert-success text-center" role="alert">
-        Рекомендуемые траектории
-    </div>
+<div class="container">    
     <div class="card-deck" style="max-width: 80rem;">
         <div class="card">
             <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap" height="280">
             <a href="@Url.Action("AccountingTrainingIndex","Home")" style="text-decoration: none; color:black;">
                 <div class="card-body">
-                    <h5 class="card-title">Бухгалтерский учет</h5>
-                    <p class="card-text">Траектория обучения включает изучение основ РСБУ, Excel 2016, 1С Бухгалтерия 3.0. Предусмотрена возможность выбора комлектации курсов: сокращение тематики программ.</p>
+                    <h5 class="card-title text-center">Бухгалтерский учет</h5>                     
+                    <p class="card-text">Изучение РСБУ и МСФО на практических задачах и реальных примерах компаний.</p>
+                    <p class="card-text">От понимания законодательства и проводок до закрытия периодов.</p>                     
                 </div>
             </a>
-                <div class="card-footer">
-                    <small class="text-muted">Стажер > Бухгалтер > Старший Бухгалтер</small>
-                </div>           
+            <div class="card-footer">
+                <small class="text-muted">Индивидуальное онлайн-обучение</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Imgs/MacroFags.jpg" alt="Card image cap" height="280">
+            <a href="@Url.Action("AccountingTrainingIndex","Home")" style="text-decoration: none; color:black;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">MS EXCEL и OUTLOOK 2016</h5>
+                    <p class="card-text">От основ работы до написания макросов.</p>
+                    <p class="card-text">Минимум теории и интенсивная практика решения реальных задач.</p>                    
+                </div>
+            </a>
+            <div class="card-footer">
+                <small class="text-muted">Обучение в аудитории или с выездом</small>
+            </div>
         </div>
         <div class="card">
             <img class="card-img-top" src="~/Content/Imgs/funghi_strani.png" alt="Card image cap" height="280">
             <a href="@Url.Action("AccountingTrainingIndex","Home")" style="text-decoration: none; color:black;">
                 <div class="card-body">
-                    <h5 class="card-title">Excel 2016 для бухгалтера</h5>
-                    <p class="card-text">Программа включает приемы и методы обработки и анализа для бухгалтеров. Рассматриваются методы обработки данных из 1С Бухгалтерия 3.0</p>
+                    <h5 class="card-title text-center">Работа в программах 1С</h5>
+                    <p class="card-text">Серия тренингов по участкам учета в 1С Бухгалтерия 3.0 и 1С ЗУП 3.1</p>
+                    <p class="card-text">Минимум теории и интенсивная практика решения реальных задач.</p>
                 </div>
             </a>
-                <div class="card-footer">
-                    <small class="text-muted">Базовый > Средний > Профессиональный </small>
-        </div>               
+            <div class="card-footer">
+                <small class="text-muted">Обучение в аудитории или с выездом</small>
+            </div>
         </div>
-        <div class="card">
-            <img class="card-img-top" src="~/Content/Imgs/b_mashroom.png" alt="Card image cap" height="280">
-            <a href="@Url.Action("AccountingTrainingIndex","Home")" style="text-decoration: none; color:black;">
-                <div class="card-body">
-                    <h5 class="card-title">Excel 2016 для юриста</h5>
-                    <p class="card-text">Расчет пени, штрафов и неустоек по договорам. Подготовка и печать документов для судов. Шаблоны и макеты готовых решений.</p>
-                </div>
-            </a>
-                <div class="card-footer">
-                    <small class="text-muted">Базовый</small>
-                </div>            
-        </div>
+
     </div>
 </div>
