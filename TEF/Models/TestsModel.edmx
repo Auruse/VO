@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TestsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TestAccRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ct" Type="nvarchar" MaxLength="50" />
+          <Property Name="Desc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubjectId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dt" Type="nvarchar(max)" />
+          <Property Name="Ct" Type="nvarchar(max)" />
+          <Property Name="Desc" Type="nvarchar(max)" />
+          <Property Name="SubjectId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestsDesc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Currency" Type="char" MaxLength="10" />
+          <Property Name="VATRate" Type="int" Nullable="false" />
+          <Property Name="KeyCode" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TestAccRecords_ToTestDesc">
+          <End Role="TestsDesc" Type="Self.TestsDesc" Multiplicity="0..1" />
+          <End Role="TestAccRecords" Type="Self.TestAccRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestsDesc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestAccRecords">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище TestsModelContainer">
+          <EntitySet Name="TestAccRecords" EntityType="Self.TestAccRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestsDesc" EntityType="Self.TestsDesc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TestAccRecords_ToTestDesc" Association="Self.FK_TestAccRecords_ToTestDesc">
+            <End Role="TestsDesc" EntitySet="TestsDesc" />
+            <End Role="TestAccRecords" EntitySet="TestAccRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TestAccRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" />
+          <NavigationProperty Name="TestsDesc" Relationship="Self.FK_TestAccRecords_ToTestDesc" FromRole="TestAccRecords" ToRole="TestsDesc" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ct" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestsDesc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="VATRate" Type="Int32" Nullable="false" />
+          <Property Name="KeyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TestAccRecords" Relationship="Self.FK_TestAccRecords_ToTestDesc" FromRole="TestsDesc" ToRole="TestAccRecords" />
+        </EntityType>
+        <Association Name="FK_TestAccRecords_ToTestDesc">
+          <End Role="TestsDesc" Type="Self.TestsDesc" Multiplicity="0..1" />
+          <End Role="TestAccRecords" Type="Self.TestAccRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestsDesc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestAccRecords">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Tests" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TestAccRecords" EntityType="Self.TestAccRecord" />
+          <EntitySet Name="Tests" EntityType="Self.Test" />
+          <EntitySet Name="TestsDescs" EntityType="Self.TestsDesc" />
+          <AssociationSet Name="FK_TestAccRecords_ToTestDesc" Association="Self.FK_TestAccRecords_ToTestDesc">
+            <End Role="TestsDesc" EntitySet="TestsDescs" />
+            <End Role="TestAccRecords" EntitySet="TestAccRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TestsModelContainer" CdmEntityContainer="Tests">
+          <EntitySetMapping Name="TestAccRecords">
+            <EntityTypeMapping TypeName="TestsModel.TestAccRecord">
+              <MappingFragment StoreEntitySet="TestAccRecords">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dt" ColumnName="Dt" />
+                <ScalarProperty Name="Ct" ColumnName="Ct" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="TestsModel.Test">
+              <MappingFragment StoreEntitySet="Tests">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dt" ColumnName="Dt" />
+                <ScalarProperty Name="Ct" ColumnName="Ct" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestsDescs">
+            <EntityTypeMapping TypeName="TestsModel.TestsDesc">
+              <MappingFragment StoreEntitySet="TestsDesc">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="VATRate" ColumnName="VATRate" />
+                <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -29,5 +29,7 @@ namespace TEF.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<TEF.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

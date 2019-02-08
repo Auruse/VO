@@ -78,6 +78,8 @@
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -193,12 +195,37 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TestAccRecordsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Test.cs">
+      <DependentUpon>TestsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestAccRecord.cs">
+      <DependentUpon>TestsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestsDesc.cs">
+      <DependentUpon>TestsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestsModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -224,6 +251,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\TestsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestsModel.edmx</DependentUpon>
+      <LastGenOutput>TestsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TestsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestsModel.edmx</DependentUpon>
+      <LastGenOutput>TestsModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -307,6 +344,13 @@
     <Content Include="Scripts\popper.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EntityDeploy Include="Models\TestsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TestsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TestsModel.edmx.diagram">
+      <DependentUpon>TestsModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\popper.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -384,8 +428,14 @@
     <Content Include="Views\Home\TrainingsList.cshtml" />
     <Content Include="Views\Home\TestsList.cshtml" />
     <Content Include="Views\Home\StatisticsPage.cshtml" />
-    <Content Include="Views\Home\GuessRecordIndex.cshtml" />
+    <Content Include="Views\Shared\GuessRecordIndex.cshtml" />
     <Content Include="Views\Home\AccountingTrainingIndex.cshtml" />
+    <Content Include="Views\TestAccRecords\Create.cshtml" />
+    <Content Include="Views\TestAccRecords\Delete.cshtml" />
+    <Content Include="Views\TestAccRecords\Details.cshtml" />
+    <Content Include="Views\TestAccRecords\Edit.cshtml" />
+    <Content Include="Views\TestAccRecords\Index.cshtml" />
+    <Content Include="Views\TestAccRecords\RecordRnd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -401,6 +451,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\index.d.ts">
