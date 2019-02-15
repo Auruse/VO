@@ -1,0 +1,160 @@
+﻿@using TEF.Models
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    @*<link href="https://fonts.googleapis.com/css?family=Lobster|Pattaya" rel="stylesheet">*@
+     
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!-- ElegantFonts CSS -->
+        <link rel="stylesheet" href="css/elegant-fonts.css">
+
+        <!-- themify-icons CSS -->
+        <link rel="stylesheet" href="css/themify-icons.css">
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="css/swiper.min.css">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="styleEz.css">
+     
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 col-lg-3">
+                            <div class="site-branding">
+                                <h1 class="site-title"><a href="index.html" rel="home">Ezu<span>ca</span></a></h1>
+                            </div><!-- .site-branding -->
+                        </div><!-- .col -->
+
+                        <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
+                            <nav class="site-navigation flex justify-content-end align-items-center">
+                                <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                                    <li class="current-menu-item"><a href="index.html">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Courses</a></li>
+                                    <li><a href="#">blog</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+
+                                <div class="hamburger-menu d-lg-none">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div><!-- .hamburger-menu -->
+
+                                <div class="header-bar-cart">
+                                    <a href="#" class="flex justify-content-center align-items-center"><span aria-hidden="true" class="icon_bag_alt"></span></a>
+                                </div><!-- .header-bar-search -->
+                            </nav><!-- .site-navigation -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div>
+        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+            <a class="navbar-brand" href="/home/index">
+                @*<img src="~/Content/Imgs/LogoNav3.png" width="98" height="28" class="d-inline-block align-top" alt="">*@
+                <span style="font-size: 1.1em; text-decoration:none; color:rgb(50, 68, 114);">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span style="color:rgb(153,0,0);">Campus</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                @if (Request.IsAuthenticated)
+                {
+                    <ul class="navbar-nav mr-auto">  @*style="font-family:Lobster;">*@
+                        <li class="nav-item">
+                            <a class="nav-link elements" href="@Url.Action("TrainingsList","Home")">
+                                <span style="font-size: 1.1em; text-decoration:none; color:grey;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </span>
+                                Курсы
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("TestsList","Home")">
+                                <span style="font-size: 1.1em; text-decoration:none; color:grey;">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </span>
+                                Тесты
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("StatisticsPage","Home")">
+                                <span style="font-size: 1.1em; text-decoration:none; color:grey;">
+                                    <i class="fas fa-chart-line"></i>
+                                </span>
+                                Статистика
+                            </a>
+                        </li>
+                    </ul>
+                    @*<button type="button" class="btn btn-link">
+                        <span style="font-size: 1.5em;">
+                            <i class="fas fa-user-circle"></i>
+                        </span>
+                        <span class="badge badge-light">9</span>
+                        <span class="sr-only">unread messages</span>
+                    </button>
+                    <span style="font-size: 1.5em; color: grey;">
+                        <i class="fas fa-cogs"></i>
+                    </span>*@
+                    @Html.Partial("_LoginPartial")
+                }
+                else
+                {
+
+                    <ul class="navbar-nav mr-auto"> @*style="font-family:Monaco;">*@
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Учебные траектории</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Тренажеры</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Контакты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Демо-версия</a>
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+
+                }
+            </div>
+        </nav>
+        <div class="container mb-5"></div>
+    </header>
+    @RenderBody()
+    <hr />
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
