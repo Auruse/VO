@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="1b3a41321169434ebe71b45a531ee003" Name="Diagram1">
         <EntityTypeShape EntityType="TestsModel.TestAccRecord" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TestsModel.Test" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TestsModel.TestsDesc" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="TestsModel.FK_TestAccRecords_ToTestDesc" ManuallyRouted="false" />
       </Diagram>

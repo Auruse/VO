@@ -12,21 +12,21 @@ namespace TEF.Models
     using System;
     using System.Collections.Generic;
     
-    //public partial class TestsDesc
-    //{
-    //    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    //    public TestsDesc()
-    //    {
-    //        this.TestAccRecords = new HashSet<TestAccRecord>();
-    //    }
+    public partial class TestsDesc
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TestsDesc()
+        {
+            this.TestAccRecords = new HashSet<TestAccRecord>();
+        }
     
-    //    public int Id { get; set; }
-    //    public string Description { get; set; }
-    //    public string Currency { get; set; }
-    //    public int VATRate { get; set; }
-    //    public string KeyCode { get; set; }
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public string Currency { get; set; }
+        public int VATRate { get; set; }
+        public string KeyCode { get; set; }
     
-    //    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    //    public virtual ICollection<TestAccRecord> TestAccRecords { get; set; }
-    //}
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TestAccRecord> TestAccRecords { get; set; }
+    }
 }

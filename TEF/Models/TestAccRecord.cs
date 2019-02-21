@@ -19,7 +19,9 @@ namespace TEF.Models
         public string Ct { get; set; }
         public string Desc { get; set; }
         public Nullable<int> SubjectId { get; set; }
-
-        //public virtual TestsDesc TestsDesc { get; set; }
+        public string Answers { get; set; }
+        public string CorrectAnswer { get; set; }
+    
+        public virtual TestsDesc TestsDesc { get; set; }
     }
 }

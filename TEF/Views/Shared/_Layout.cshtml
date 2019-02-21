@@ -49,7 +49,7 @@
                 </div><!-- .top-header-bar -->
             </header><!-- .site-header -->
 
-            @if (Request.IsAuthenticated)
+            @if (Request.IsAuthenticated || Request.Url.ToString().Contains("Login") )
             {
                 <div class="nav-bar">
                     <div class="container">
@@ -86,8 +86,7 @@
             }
             else
             {
-                if (Request.Url.ToString().Contains("Index"))
-                {<div class="nav-bar">
+                 <div class="nav-bar">
                         <div class="container">
                             <div class="row">
                                 <div class="col-9 col-lg-3">
@@ -98,7 +97,7 @@
                                 <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
                                     <nav class="site-navigation flex justify-content-end align-items-center">
                                         <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-
+                                             
                                             <li><a href="index.html">Тренинги</a></li>
                                             <li><a href="#">Тренажеры</a></li>
                                             <li><a href="#">Интенсивы</a></li>
@@ -137,7 +136,7 @@
                             </div><!-- .col -->
                         </div><!-- .row -->
                     </div><!-- .container -->
-                }
+                
             }
 
 

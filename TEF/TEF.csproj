@@ -202,9 +202,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Test.cs">
-      <DependentUpon>TestsModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TestAccRecord.cs">
       <DependentUpon>TestsModel.tt</DependentUpon>
     </Compile>

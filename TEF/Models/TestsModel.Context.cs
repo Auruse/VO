@@ -16,17 +16,16 @@ namespace TEF.Models
     public partial class Tests : DbContext
     {
         public Tests()
-            : base("name=DefaultConnection")
+            : base("name=Tests")
         {
         }
     
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    throw new UnintentionalCodeFirstException();
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
     
         public virtual DbSet<TestAccRecord> TestAccRecords { get; set; }
-        public virtual DbSet<Test> TestsDb { get; set; }
-        //public virtual DbSet<TestsDesc> TestsDescs { get; set; }
+        public virtual DbSet<TestsDesc> TestsDescs { get; set; }
     }
 }

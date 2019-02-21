@@ -12,14 +12,14 @@ namespace TEF.Controllers
 {
     public class TestAccRecordsController : Controller
     {
-        private Tests db = new  Tests();
+        private Tests db = new Tests();
         
        
         // GET: TestAccRecords
         public ActionResult Index()
         {
             
-            return View();
+            return View(db.TestAccRecords);
         }
         
         public ActionResult RecordRnd(int? id)
@@ -54,7 +54,7 @@ namespace TEF.Controllers
         // GET: TestAccRecords/Create
         public ActionResult Create()
         {
-            //ViewBag.SubjectId = new SelectList(db.TestsDescs, "Id", "Description");
+            ViewBag.SubjectId = new SelectList(db.TestAccRecords, "Id", "Desc");
             return View();
         }
 
@@ -63,7 +63,7 @@ namespace TEF.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Dt,Ct,Desc,SubjectId")] TestAccRecord testAccRecord)
+        public ActionResult Create([Bind(Include = "Id,Dt,Ct,Desc,Answers,CorrectAnswer,SubjectId")] TestAccRecord testAccRecord)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace TEF.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Dt,Ct,Desc,SubjectId")] TestAccRecord testAccRecord)
+        public ActionResult Edit([Bind(Include = "Id,Dt,Ct,Desc,Answers,CorrectAnswer,SubjectId")] TestAccRecord testAccRecord)
         {
             if (ModelState.IsValid)
             {
