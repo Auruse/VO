@@ -22,20 +22,44 @@ namespace TEF.Controllers
             return View(db.TestAccRecords);
         }
         
-        public ActionResult RecordRnd(int? id)
+        public ActionResult RecordRnd(int? id,int? answ, int score)
         {
-            if(id.HasValue || id<= db.TestAccRecords.Count())
+             
+            if (id.HasValue || id<= db.TestAccRecords.Count())
             {
              TestAccRecord testAccRecord = null;
 
              testAccRecord = db.TestAccRecords.Find(id);
+                if (answ.HasValue && answ!=null && testAccRecord.CorrectAnswer!=null)
+                {
+                    int vans = answ ?? default(int);
+
+                    if (Convert.ToInt16(testAccRecord.CorrectAnswer)==vans)
+                    {
+                        score += 1;
+                    }
+                }
+                ViewBag.Score = score;
                 return View(testAccRecord);
             }
             
 
             return View("Index");
         }
-        
+        [HttpPost]
+        public ActionResult Talepler(FormCollection formCollection)
+        {
+            bool chkeco = false ;
+            string chkecoValue = "";
+            
+            if (!string.IsNullOrEmpty(formCollection["exampleRadios"])) { chkeco = true; }
+            
+            if (chkeco) { chkecoValue = formCollection["chkeco"]; }             
+
+
+
+            return RedirectToAction("RecordRnd");
+        }
         // GET: TestAccRecords/Details/5
         public ActionResult Details(int? id)
         {
