@@ -21,36 +21,32 @@
                 @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
                 @Html.DisplayFor(model => model.Answers)
                 <div class="container text-left">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Дт @Html.DisplayFor(model => model.Dt) Кт @Html.DisplayFor(model => model.Ct)
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Дт 19 Кт 60
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                        <label class="form-check-label" for="exampleRadios3">
-                            Дт 19 Кт 63
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                        <label class="form-check-label" for="exampleRadios4">
-                            Дт 19 Кт 71
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                        <label class="form-check-label" for="exampleRadios5">
-                            нет правильного ответа
-                        </label>
-                    </div>
+                    @{ int qid = 1;
+                        foreach (var answerChoice in Model.Answers.Split('|'))
+                        {
+                            if (answerChoice.Contains(';'))
+                            {
+                                var ans = answerChoice.Split(';');
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id=@qid value=@qid checked>
+                                    <label class="form-check-label" for=@qid>
+                                        Дт @ans[0] Кт @ans[1]
+                                    </label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id=@qid value=@qid checked>
+                                    <label class="form-check-label" for=@qid>
+                                        @answerChoice
+                                    </label>
+                                </div>
+                            }
+                            qid += 1;
+                        }
+                    }
+
                 </div>
                 <button type="button" class="btn btn-outline-success" onclick="location.href='@Url.Action("RecordRnd","TestAccRecords",new { id=Model.Id+1 })'">Подтвердить</button>
 
