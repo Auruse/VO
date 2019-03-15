@@ -28,15 +28,16 @@ namespace TEF.Controllers
             ViewBag.Score = 0;
             ViewBag.MaxQ = 1;
             ViewBag.Subject = subj<1 ? 1 : subj;
-            
+            ViewBag.CurrQ = 1;
             if (id.HasValue || id<= db.TestAccRecords.Count())
             {
 
                 //                TestAccRecord testAccRecord = db.TestAccRecords.Find(1);
-                IList ts = db.TestAccRecords.Where(x => x.SubjectId == 1).Select(x=>x.Id).ToList();
+                var q = db.TestAccRecords.Where(x => x.SubjectId == 1).Select(x => x.Id).ToArray();
+                string ts = String.Join(",",q);
                 ViewBag.SubjectId = ts;
-                ViewBag.MaxQ = ts.Count;
-               TestAccRecord testAccRecord = db.TestAccRecords.Find(ts[0]);
+                ViewBag.MaxQ = q.Count();
+               TestAccRecord testAccRecord = db.TestAccRecords.Find(q[0]);
                 return View(testAccRecord);
                
             }
@@ -49,10 +50,16 @@ namespace TEF.Controllers
         {
             int Score = Convert.ToInt16(collection["Score"]);
             ViewBag.Score = Score;
+            ViewBag.MaxQ = Convert.ToInt16(collection["MaxQ"]);
+            ViewBag.Subject = collection["Subject"];
+            ViewBag.SubjectId = collection["SubjectId"];
+            ViewBag.CurrQ = Convert.ToInt16(collection["CurrQ"]);
+            int currq = Convert.ToInt16(collection["CurrQ"]);
+            var ts = collection["SubjectId"];
             var showAll = collection["exampleRadios"];
             var ans_n = 1;
             var resans = 0;
-            int id = Convert.ToInt16(collection["Qid"]);
+            int id = ts[currq];
             foreach (var i_ans in showAll.Split(','))
             {
                 if (i_ans == "true") resans = ans_n;
@@ -71,7 +78,7 @@ namespace TEF.Controllers
                 if (id <= db.TestAccRecords.Count())
                 {
                     testAccRecord = db.TestAccRecords.Find(id);
-                     
+                    ViewBag.CurrQ = id;
                     return View(testAccRecord);
                 }                 
             }

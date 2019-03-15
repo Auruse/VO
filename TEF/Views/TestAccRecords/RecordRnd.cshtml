@@ -11,7 +11,7 @@
     int prg = Convert.ToInt16(ViewBag.Score) *100/ ViewBag.MaxQ;
     <div class="container text-center">
         <div class="alert alert-success text-center" role="alert">
-            Вы ответили на @(Model.Id - 1) вопросов из 7. Правильно - @ViewBag.Score (@prg %)
+            Вы ответили на @ViewBag.CurrQ вопросов из @ViewBag.MaxQ. Правильно - @ViewBag.Score (@prg %)
         </div>
         <div class="progress mb-3">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: @cur%" aria-valuenow="@cur" aria-valuemin="0" aria-valuemax="100"></div>
@@ -32,7 +32,7 @@
                     <input name="Qid" value="@Model.Id" type="hidden" />
                     <input name="Score" value="@ViewBag.Score" type="hidden" />
                     <input name="MaxQ" value="@ViewBag.MaxQ" type="hidden" />
-                    <input name="Subject" value="@ViewBag.SubjectId" type="hidden" />
+                    <input name="SubjectId" value="@ViewBag.SubjectId" type="hidden" />
                     <input name="Subject" value="@ViewBag.Subject" type="hidden" />
                     <div class="container text-left">
                         @{
