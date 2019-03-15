@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -21,44 +22,60 @@ namespace TEF.Controllers
             
             return View(db.TestAccRecords);
         }
-        
-        public ActionResult RecordRnd(int? id,int? answ, int score)
+        [HttpGet]
+        public ActionResult RecordRnd(int? id, int subj )
         {
-             
+            ViewBag.Score = 0;
+            ViewBag.MaxQ = 1;
+            ViewBag.Subject = subj<1 ? 1 : subj;
+            
             if (id.HasValue || id<= db.TestAccRecords.Count())
             {
-             TestAccRecord testAccRecord = null;
 
-             testAccRecord = db.TestAccRecords.Find(id);
-                if (answ.HasValue && answ!=null && testAccRecord.CorrectAnswer!=null)
-                {
-                    int vans = answ ?? default(int);
-
-                    if (Convert.ToInt16(testAccRecord.CorrectAnswer)==vans)
-                    {
-                        score += 1;
-                    }
-                }
-                ViewBag.Score = score;
+                //                TestAccRecord testAccRecord = db.TestAccRecords.Find(1);
+                IList ts = db.TestAccRecords.Where(x => x.SubjectId == 1).Select(x=>x.Id).ToList();
+                ViewBag.SubjectId = ts;
+                ViewBag.MaxQ = ts.Count;
+               TestAccRecord testAccRecord = db.TestAccRecords.Find(ts[0]);
                 return View(testAccRecord);
+               
             }
             
 
-            return View("Index");
+            return View();
         }
         [HttpPost]
-        public ActionResult Talepler(FormCollection formCollection)
+        public ActionResult RecordRnd(FormCollection collection)
         {
-            bool chkeco = false ;
-            string chkecoValue = "";
-            
-            if (!string.IsNullOrEmpty(formCollection["exampleRadios"])) { chkeco = true; }
-            
-            if (chkeco) { chkecoValue = formCollection["chkeco"]; }             
+            int Score = Convert.ToInt16(collection["Score"]);
+            ViewBag.Score = Score;
+            var showAll = collection["exampleRadios"];
+            var ans_n = 1;
+            var resans = 0;
+            int id = Convert.ToInt16(collection["Qid"]);
+            foreach (var i_ans in showAll.Split(','))
+            {
+                if (i_ans == "true") resans = ans_n;
+                ans_n += 1;
+            }
+            if (id <= db.TestAccRecords.Count())
+            {
+                TestAccRecord testAccRecord = db.TestAccRecords.Find(id < 1 ? 1 : id);
+                   if (Convert.ToInt16(testAccRecord.CorrectAnswer) == resans)
+                    {
+                        ViewBag.Score += 1;
+                    }
+                
 
-
-
-            return RedirectToAction("RecordRnd");
+                id += 1;
+                if (id <= db.TestAccRecords.Count())
+                {
+                    testAccRecord = db.TestAccRecords.Find(id);
+                     
+                    return View(testAccRecord);
+                }                 
+            }
+            return View();
         }
         // GET: TestAccRecords/Details/5
         public ActionResult Details(int? id)
